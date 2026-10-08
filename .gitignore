@@ -1,0 +1,31 @@
+# OS / Python
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# Data, features and weights: never commit
+*.mp4
+*.npy
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.ckpt
+*.gpx
+*.json
+clips/
+cache/
+checkpoints/
+Checkpoints/
+osm_cache/
+logs/
+*.out
+*.err
+
+# Location data and per-session outputs
+*_gps.csv
+*_events.csv
+predictions_*.csv
+*.html

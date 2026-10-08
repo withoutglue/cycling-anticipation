@@ -1,0 +1,19 @@
+# Core (training / evaluation)
+torch
+numpy
+pandas
+h5py
+scipy
+matplotlib
+
+# Data preparation
+opencv-python
+ijson
+gpxpy
+pyproj
+osmnx
+
+# Geo analysis / plots
+geopandas
+contextily
+folium
