@@ -23,9 +23,8 @@ DATA_FRACTION=${DATA_FRACTION:-1.0}
 
 # Output dir encodes both probe type and data fraction (e.g. probe_linear_f0.50)
 FRAC_SUFFIX=$(python3 -c "f=${DATA_FRACTION}; print('' if f==1.0 else f'_f{f:.2f}')")
-OUT_DIR=$DATA/checkpoints/probe_${PROBE_TYPE}${FRAC_SUFFIX}
 
-mkdir -p $DATA/logs $OUT_DIR
+mkdir -p $DATA/logs
 
 module purge
 module load python-pytorch/2.10
