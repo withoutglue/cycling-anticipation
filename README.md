@@ -2,10 +2,10 @@
 
 Master's thesis project (Data Science, University of Helsinki, 2026).
 
-Can a frozen video world model anticipate what a cyclist will do at an intersection *before* they do it?
-This repo probes frozen [V-JEPA 2](https://github.com/facebookresearch/vjepa2) ViT-g representations of first-person
+Can a frozen video world model anticipate what a cyclist will do at an intersection?
+This repo uses probes and frozen [V-JEPA 2](https://github.com/facebookresearch/vjepa2) ViT-g representations of first-person
 cycling video to classify the upcoming maneuver (**left, right, straight, or stop**) from video ending 15 m before
-the intersection, where manual review of the left, right and stop clips found the maneuver still visually ambiguous.
+the intersection.
 
 Frozen V-JEPA 2 features anticipate cyclist maneuvers at 51–56 % macro accuracy (chance 25 %). Much of that comes from
 familiarity with the location: the linear probe scores 0.64 at intersections seen in training but 0.43 at unseen ones.
@@ -24,8 +24,7 @@ For attention probes the drop is not significant.
 4. **Probing.** Lightweight probes (Linear, MLP, Attn-1, Attn-4) are trained on the cached features
    (`train_probe.py`), evaluated on held-out sessions (`eval_probe.py`).
 
-Evaluation uses **macro-averaged accuracy** (mean per-class recall): the validation set is ~80% `straight`, so plain
-accuracy would reward a constant predictor.
+Evaluation uses **macro-averaged accuracy** (mean per-class recall): there was severe class imbalance, with 87% of the labeled events as 'straight'.
 
 ## Results
 
@@ -59,7 +58,7 @@ Per-class values are recall on the 10 validation sessions; chance macro accuracy
 attentive poolers with 1 / 4 transformer blocks.
 
 - **Checkpoint selection:** the reported checkpoint is the epoch with the highest validation macro accuracy. There is
-  no separate test set, so these figures are mildly optimistic.
+  no separate test set, so these figures are optimistic.
 - **Uncertainty:** differences between probes, and between encoder-only and encoder + predictor features, are within
   noise at this validation-set size. The tables do not establish a ranking.
 
