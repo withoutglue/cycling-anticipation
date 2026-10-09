@@ -31,21 +31,21 @@
 
 % ── Top row: GPS and labels ─────────────────────────────────────────────────
 \node[box, fill=datafill] (rec) at (0,0) {\stage{1\ \ Recording}{%
-  \stageitem{Helmet-mounted Insta360 X3}
+  \stageitem{helmet-mounted Insta360 X3}
   \stageitem{video 30\,fps, GPS Remote 1\,Hz}
   \stageitem{68 sessions, $\approx$17.5\,h}
   \stageitem{Helsinki, London, Las Palmas}}};
 
 \node[box, fill=labelfill, right=0.7cm of rec.north east, anchor=north west] (sync) {\stage{2\ \ GPS synchronisation}{%
-  \stageitem{GPS fixes mapped to video frames}
-  \stageitem{via recording start time, or a manual frame--timestamp anchor}}};
+  \stageitem{GPS fixes mapped to video frames via recording start time, or a manual frame--timestamp anchor}
+  }};
 
 \node[box, fill=labelfill, right=0.7cm of sync.north east, anchor=north west] (det) {\stage{3\ \ Intersection detection}{%
   \stageitem{OSM intersection nodes}
   \stageitem{crossing: first GPS fix within 15\,m}}};
 
 \node[box, fill=labelfill, right=0.7cm of det.north east, anchor=north west] (lab) {\stage{4\ \ Labelling}{%
-  \stageitem{stop: stationary $\geq$3\,s within 10\,s}
+  \stageitem{stop: stationary within 10\,s after entering the intersection radius}
   \stageitem{otherwise heading change $\pm30^\circ$: left, right, straight}
   \stageitem{manual review}}};
 
@@ -58,9 +58,9 @@
 
 \node[box, fill=frozenfill, right=0.7cm of clip.north east, anchor=north west] (enc) {\stage{6\ \ Feature encoding}{%
   \stageitem{V-JEPA 2 ViT-g/16 (frozen)}
-  \stageitem{$4096\times1408$ tokens per clip}
-  \stageitem{optional predictor: +256 tokens at $\tau=1$\,s}
-  \stageitem{training-set flip: left $\leftrightarrow$ right}}};
+  \stageitem{$4096\times1408$ tokens / clip}
+  \stageitem{secondary predictor: +256 tokens}
+  \stageitem{clip augmentation}}};
 
 \node[box, fill=trainedfill, right=0.7cm of enc.north east, anchor=north west] (probe) {\stage{7\ \ Probe training}{%
   \stageitem{linear, MLP, Attn-1, Attn-4}

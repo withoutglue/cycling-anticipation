@@ -1,6 +1,6 @@
 # Cyclist Maneuver Anticipation with V-JEPA 2
 
-Master's thesis project (Data Science, <!-- TODO: university, year -->).
+Master's thesis project (Data Science, University of Helsinki, 2026).
 
 Can a frozen video world model anticipate what a cyclist will do at an intersection *before* they do it?
 This repo probes frozen [V-JEPA 2](https://github.com/facebookresearch/vjepa2) ViT-g representations of first-person
@@ -9,7 +9,7 @@ reaches the intersection.
 
 <!-- TODO: one headline result, e.g. "Best probe reaches X% macro accuracy at a Y s anticipation gap (chance 25%)." -->
 
-![Pipeline](results/figures/pipeline.png) <!-- TODO: export pipeline.drawio to PNG -->
+![Pipeline](results/figures/pipeline.png)
 
 ## Approach
 
